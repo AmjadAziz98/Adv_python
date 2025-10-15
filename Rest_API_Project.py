@@ -11,7 +11,9 @@ image = requests.get(image_path)
 
 # client = genai.Client(api_key="Your API Key here")
 client = genai.Client(api_key= userdata.get('api_key'))
-response = client.models.generate_content(model ="gemini-2.0-flash-exp",contents =["Provide the list of food items in the picutres in bullet points.",types.Part.from_bytes(data=image.content,mime_type="image/jpeg")])
+response = client.models.generate_content(model ="gemini-2.0-flash-exp",
+        contents =["Provide the list of food items in the picutres in bullet points.",
+        types.Part.from_bytes(data=image.content,mime_type="image/jpeg")])
 
 res = response.text
 
